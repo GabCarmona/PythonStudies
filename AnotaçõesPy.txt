@@ -1,0 +1,589 @@
+{} , .format{}
+
+TESTES DE NÚMERO E LETRAS 
+    .isnumeric
+    .isalpha
+    .isalphanum
+
+
+IMPORTAÇÃO DE MÓDULOS
+    import <modulo>
+    from <modulo> import <function>
+
+    BIBLIOTECA MATH:
+        ceil - arredondamento para cima
+        floor - arredondamento para baixo
+        trunc - eliminar números após a vírgula
+        pow - potencia
+        sqrt - raiz quadrada
+        factorial - cálculo de fatorial
+
+    BIBLIOTECA RANDOM:
+        random.random() - gera numero aleatorio entre 0 e 1 
+        random.randint(<intervalo>) - gera numero aleatorio dentro do intervalo entre parenteses
+        random.choice(<fonte de dados>) - seleciona um dado aleatório entre os informados
+        random.shuffle(<lista>) - embaralha elementos -> indicar "sorteio"
+
+    BIBLIOTECA EMOJI:
+        uso: print(emoji.emojize("<frase + emoji>", use_aliases=True))
+    
+    BIBLIOTECA TIME:
+        time.sleep(<time>) - usado como temporizador de execução
+    
+
+MANIPULAÇÃO DE STRINGS
+   frase = str("PIPIPIPOPO ")
+    FATIAMENTO
+        frase[9:13] -> começa no 9 e vai até o 13, excluindo o 13
+        frase[9:13:2] -> //, mas com salto 2
+        frase [:x] -> começa do 0 e vai até x
+        frase[x:] -> começa em x e vai até o final
+        frase[::-1] -> começa do 0 e vai até o final, mas de trás pra frente
+    
+    ANÁLISE
+        len(frase) -> mostra o numero de caracteres de frases
+        frase.count('o') -> o programa irá contar quantas vezes aparece a letra "o" dentro da frase
+            frase.count('o', 0, 13) -> fará a mesma coisa, mas dentro do intervalo [0,13]
+        frase.find("<caracteres>") -> procura os caracteres na string e mostra a posição do primeiro caractere da busca. Se não houver, retorna -1
+        <palavra> in frase -> procura a palavra na string e retorna true ou false
+
+    TRANSFORMAÇÃO
+        frase.replace('<PalavraExistente'>,'<PalavraNova>') 
+        frase.upper() -> deixa a string desejada em letras maiúsculas
+        frase.lower() -> deixa a string desejada em letras minúsculas
+        frase.capitalize() -> deixa o primeiro caractere maiúsculo e o resto em minúsculo
+        frase.title() -> capitalize palavra por palavra
+        frase.strip() -> remove os espaços vazios antes e após a string (space)
+        frase.rstrip() -> remove os espaços a direita da string
+        frase.lstrip() -> remove os espaços a esquerda da string
+
+    DIVISÃO
+        frase.split() ->  Divide uma string em seus espaços, sendo que cada palavra forma uma nova string, agrupadas em uma lista
+    
+    JUNÇÃO  
+        '-'.join(frase)  -> O método .join() é o inverso do método .split(). Ele junta os elementos de uma lista, usando um separador entre eles. 
+
+    OBS: Três aspas útil para escrever textos grandes sem ter que utilizar varios print
+
+
+ESTRUTURAS DE REPETIÇÃO
+    
+    FOR:
+        laço <variável> no intervalo (1,10)
+        SINTAXE: for <variável> in range (x,y,<z>):
+            obs: o contador começa contando em x mas não inclui o y, ou seja,
+            em um for (0,10) ele vai contar 10 números -> 0,1,2,3,4,5,6,7,8,9;
+            Z é o passo.
+
+        for item in lista:
+            print(item) -> percorre toda lista de forma mais prática
+
+        ENUMERATE:  for i, item in enumerate(lista):
+                        resto do código
+                    -> usado quando se deseja printar e saber o indíce da string
+
+        FOR DENTRO DE OUTRO FOR:
+            for lista in estoque:
+                for qtde in lista:
+                    resto do código 
+    
+    WHILE:
+        Mais utilizado quando não se sabe o limite do "Range"
+        SINTAXE: while (not) <variável> <condição>:
+
+        INTERROMPENDO REPETIÇÕES WHILE:
+            while True: -> looping infinito
+            break -> sair do laço
+
+
+LISTAS: 
+    Declaração: lista = [a, b, c]
+    Listas em python foram feitas para serem homogêneas (somente um tipo de dado).
+    Variaveis externas também podem ser incluídas nas listas.
+    listas são mutáveis.
+    i = lista.index("item") -> mostra o indíce do item na lista e guarda o valor na variável i.
+
+    ADICIONAR E REMOVER ITENS DE UMA LISTA:
+
+        Adicionar: lista.append(item) -> adiciona o item ao final da lista
+       
+        Remover: item_removido = lista.pop(indice) 
+        ou
+        lista.remove(item)
+        
+        try:  / except:  -> vai tentar executar um bloco, se der erro, o programa pula para o except
+
+    JUNTAR LISTAS, ORDENAR LISTAS: 
+        Juntar: 
+            - lista1.extend(lista2) -> modifica a lista original
+            - nova_lista = lista1 + lista2 -> não modifica a lista original 
+        
+        Cuidado: 1 + 2 != [1] + [2]
+
+        Ordenar:
+            - lista.sort -> ordena de acordo com ASCII de forma crescente (Maiúsculas tem valores menores do que minúsculas), pode
+            ser usado para número também. // modifica a lista original.
+            Para ordenar de forma decrescente: lista.sort(reverse = True)
+
+    PRINTAR UMA LISTA: 
+        - "print" normal
+        - Método join -> print("\n".join(lista))
+
+        obs: lista.split(separador)
+
+    ALTERAÇÕES INCREMENTAIS DE VARIAVEIS: 
+        ex = email = email + " {} unidades de ipad".format(500)
+    
+    COPIAR E IGUALDADE DE LISTAS:
+        Quando fazemos lista2 = lista1; não estamos criando uma lista nova, mas estamos atribuindo outra variável à mesma lista.
+        Se quisermos copiar lista devemos fazer -> lista2 = lista1.copy() // ou entao -> lista2 = lista1[:]
+
+
+TUPLAS:
+    As tuplas são imutáveis -> protege as informações
+    tupla = (valor, valor,  valor, ...)
+    Muito utilizada para dados heterogêneos
+    É possível usar o for com a tupla, ex: for c in <nome da tupla>: print(c)
+
+    obs: Hoje, o Python 3.10 é possível utilizar uma Tupla com mais de uma Saída de dado.
+    Como por exemplo:
+    pessoa: tuple[int, str, int, int] = (2, 'Davi', 0 , 3)
+    print(pessoa)
+
+    comando sorted(<tupla>) -> mostra a trupla organizada em ordem alfabética
+    tupla.index(<variável>) -> mostra em que posição da tupla está a variável (primeira ocorrência)
+    del(<tupla>) -> apaga a tupla 
+    
+    Para atribuir valores de uma tupla a variáveis de forma mais direta é possível utilizar essa estrututa:
+    ex: 
+    vendas = ('Gabriel', '10/08/2022', '15/02/1994',  2000, 'Estagiário')
+    nome, data_contratação, data_nascimento, salario, cargo = vendas
+
+
+DICIONARIO 
+    dicionario = {chave: valor, chave: valor ...}
+    Não devem ser usados para pegar itens em uma determinada ordem;
+    Podem ter valores heterogêneos;
+    Chaves são únicas obrigatoriamente
+    Capaz de abrigar tabelas(dataframes)
+
+    Para procurar uma chave no dicionario é possível usar o método get: vendas_tecnologia.get("ipad") -> se não encontrar a chave retorna "None"
+
+    ADICIONAR, REMOVER E MODIFICAR ITENS:
+        Para adicionar itens é usada a estrutura -> dicionario[chave] = valor // ou // dicionario.update({chave: valor, chave: valor})
+        Para remover itens -> del dicionario[chave] // ou // valor = dicionario.pop(chave)
+        Para limpar o dicionário -> dicionario.clear()
+        Para obter só os valores do dicionario -> dicionario.values()
+        
+    FOR NOS DICIONARIOS:
+        for chave in dicionario:
+            resto do codigo
+    
+    MÉTODOS ÚTEIS: 
+        items() -> itens_dicionario = dicionario.items() - retorna uma lista de tuplas, em que cada item corresponde a chave seguida do valor;
+        pode ser usado tb em conjunto com o for: for item in vendas_tecnologia.items():
+                                                    print(item)        
+        .keys() -> uma "lista" com todas as chaves do dicionario
+        .values() -> uma "lista" com todos os valores do dicionario
+        transformar dict_keys ou dict_values em lista -> chaves = list(keys)
+    
+    TRANSFORMANDO LISTAS EM DICIONARIOS:
+        Dicionario com valor padrão:
+            dicionario = dict.fromkeys(lista_chaves, valor_padrão)
+        Dicionario a partir de listas de tuplas:
+            dicionario = dict(lista_tuplas)
+        Dicionario a partir de duas listas:
+            Passo 1: Transformar listas em listas de tuplas com o método zip. -> lista_tuplas = zip(lista1, lista2)
+            Passo 2: Transformar em dicionario. -> dicionario = dict(lista_tuplas)
+
+
+ITERABLE:
+    Estrutura que armazena dados que pode ser "iterada", ou seja, que você pode fazer um loop como um for dentro dela,
+    e ir passando de item a item.
+    -> listas, tuplas, dicionários, strings 
+
+    RANGE:
+        range(tamanho);
+        range(inicio, fim);
+        range(inicio, fim, passo).
+
+    SET:  
+        estrutura -> meu_set = {valor, valor, valor, ...}
+        Não pode ter valores duplicados
+        Não tem ordem fixa
+        
+        Transformando lista em set : set(lista)
+
+
+FUNÇÕES:
+    ESTRUTURA BÁSICA:
+        def nome_função():
+            faça alguma coisa
+            faça outra coisa
+            return valor_final
+    
+    ARGUMENTOS / PARÂMETROS: 
+        def minha_funçao(parametro1, parametro2, parametro3):
+            return parametro1 + parametro2 + parametro3
+            
+            VALORES PADRÃO PARA OS ARGUMENTOS:
+            def minha_funcao(argumento = valor_padrao):
+                ...
+                return...
+    
+    SOBRE O RETURN: 
+        Podemos utilizar o return com qualquer tipo de objeto -> numero, string, lista, etc 
+        - utilizar o return encerra a function
+
+        RETORNANDO MAIS DE UM OBJETO: return(variavel_1, variavel_2, variavel_3, ...) -> é retornada uma tupla
+
+    DOCSTRINGS & ANNOTATIONS:
+        Docstrings -> diz o que a função faz, quais valores ela tem como argumento e o que significa cada valor
+        Annotation -> diz o que devem ser os argumentos e o que a funçao retorna
+    
+    EXCEÇÕES E ERROS EM FUNÇÕES:
+        testando erros -> try: ... (\n) except:
+        printando erro -> raise Exception('O erro foi esse') // ou então avisando o tipo de erro que ele teve:
+        
+        raise TypeError('O erro foi esse')
+        raise ValueError('O erro foi esse')
+        raise ZeroDivisionError('O erro foi esse')
+
+    QUANTIDADE INDEFINIDA DE ARGUMENTOS:
+        def minha_funcao(*args):  -> argumentos vêm em forma de tupla
+            ... 
+
+        def minha_funcao(**kwargs): -> keyword arguments; argumentos vêm em format de dicionário
+            ...
+    
+    ORDEM DOS ARGUMENTOS:
+        - Sempre os positional arguments vêm antes, depois os keywords arguments.
+        - Sempre os argumentos individuais vêm antes dos múltiplos.
+
+
+INTRODUÇÃO A ORIENTAÇÃO A OBJETO:
+    
+    IMPORTAÇÃO DE MÓDULOS:
+        time.ctime(time()) -> retorna a data atual e padrão UTC
+        time.gmtime() -> retorna várias informações sobre o dia atual
+
+    EXIBINDO GRÁFICOS: 
+    import matplotlib.pyplot as plt
+    plt.plot(lista)
+    plt.show()
+
+    variações: plt.plot(vendas_meses, meses) -> plt.plot(lista eixo x, lista eixo y)
+    plt.xlabel('Meses')
+    plt.ylabel('Vendas')
+
+    controlando intervalos dos eixos -> plt.axis([xmin, xmax, ymin, ymax])
+
+    MAIS EDIÇÕES DE GRÁFICO:
+        módulo numpy
+
+        Mudando Linhas Apenas para Marcadores:
+            plt.plot(lista_x, lista_Y, 'ro', color = 'green')
+
+            ro - bolinhas
+            r--  tracejado
+            bs - quadrados
+            g^ - triângulos
+            entre outros
+
+    plt.scatter() - grafico de dispersão
+    plt.bar() - gráfico de barras
+
+    Plotar Mais de um Gráfico de uma Vez:
+        plt.figure(figsize=(9, 3)) - largura, altura
+        plt.subplot(1, 3, 1) - linha, colunas, posição
+        #código do primeiro gráfico
+        plt.subplot(1, 3, 2)
+        #código do segundo gráfico
+        plt.subplot(1, 3, 3) 
+        #código do terceiro gráfico 
+        plt.show
+
+
+LIST COMPREHENSION:
+    -> É uma forma de percorrer todos os itens de uma lista de maneira mais direta, como se tivesse um "for" 
+       em uma linha de código.
+
+    ESTRUTURA:  lista = [expressão for item in iterable]
+    -> Normalmente é utilizado quando queremos fazer uma única ação com todos os itens da lista.
+    -> Se a lista for muito grande o list comprehension pode acabar sendo difícil de compilar.
+
+    IF PARA FILTRAR ITENS:
+        Estrutura: lista = [expressão for item in iterable if condição]
+
+    IF PARA ESCOLHER O RESULTADO FINAL:
+        Lista = [item if condição else outro_resultado for item in iterable]
+
+FUNCTION EM ITERABLE:
+    Funçao map aplica uma função pra cada item do iterable
+    sort tem o parametro key que recebe uma função
+
+LAMBDA EXPRESSIONS:
+    minha_função = lambda parametro: expressão -> possível aplicação dentro do map  
+
+    MÉTODO FILTER -> filtra os valores de um iterable que atendem a uma condição
+        filter(função, iterable) -> retorna como resposta todos os itens do iterable onde a função é true
+
+    LAMBDA EXPRESSIONS PARA GERAR FUNÇÕES: 
+
+PANDAS:
+    Lendo arquivo csv: dataframe = pd.read_csv(arquivo com extensão, sep=';')
+    temos um dataframe chamado vendas_df
+
+    vendas_df['coluna_x'] -> uma lista com os valores da coluna 'x' (em formato dataframe, é um dataframe com 1 coluna só)      
+    vendas_df[0] -> pega a primeira linha do dataframe
+    vendas_df[:3] -> pega até a linha de índice 3 do dataframe, sem contar a 3
+    vendas_df[['coluna_x', 'coluna_y', 'coluna_z']] -> cria um novo dataframe com essas colunas
+    vendas_df['coluna_x'][0] -> pega o item da primeira linha da coluna x   
+
+    vendas_df.info() -> exibe informações do csv: mostra quais são as colunas, número de linhas e colunas, valores não nulos e etc
+
+    O FOR POR PADRÃO PERCORRE AS COLUNAS, PARA PERCORRER AS LINHAS: for linha in tabela.index:
+
+    COMPARANDO, MESCLANDO E TRATANDO DATAFRAMES:
+        cuidados com encoding.
+        .drop([coluna1, coluna2, coluna3]) -> retira as colunas do df. obs= nao modifica a original, é necessário atribuir a variavel. ex = clientes_df = clientes_df.drop()
+            axis=0 -> linha // axis=1 -> coluna
+        É possível rededfinir df por meio de atribuições como no caso acima
+
+        Juntar os dataframes: novo_dataframe = dataframe1.merge(dataframe2, on=coluna)  
+
+        Renomeando coluna: dataframe = dataframe.rename(columns={'E-mail':'E-mail do Cliente'})
+        
+        .value_counts() ->  conta quantas vezes cada valor do dataframe aparece
+        .groupby('Nome da Loja') -> agrupa o dataframe de acordo com o que queremos (somando as quantidades de vendas por exemplo)
+        ex: vendas_lojas = vendas_df.groupby('Nome da Loja').sum()  
+        .sort_values('coluna') -> ordenação feita pelos valores da coluna indicada como parametro
+
+    FILTRAR INFORMAÇÕES DENTRO DE DATAFRAMES:
+        filtrando uma coluna específica:
+            vendas_loja_x = vendas_df[vendas_df['ID da Loja'] == y(id)] -> mais de uma condição com & e isolá-las com parenteses
+        é possível fazer de forma "separada":
+            lojax = vendas_df['ID da Loja'] == y(id)
+            qtde_devolvida_0 = vendas_df['Quantidade Devoldida'] == 0
+            df2_lojaxsemedv = vendas_df[lojax & qtde_devolvida_0]
+            print(df2_lojaxsemedv)
+
+    ADICIONANDO COLUNAS E MODIFICANDO COLUNAS E VALORES:
+        transformando texto em data:
+            vendas_df['Data da Venda'] = pd.to_datetime(vendas_df['Data da Venda'], format='%d/%m/%Y)
+        acrescentando coluna:
+            vendas_df['Ano da Venda'] = vendas_df['Data da Venda'].dt.year -> como nao havia a coluna 'Ano da Venda' no df original, o programa cria uma nova coluna com esse nome
+        modificando valor específico: 
+            .loc permite acessar um indíce em específico -> df.loc['Produto Z', 'Preço unitário'] -> ['indice da linha', 'indice da coluna'] (é possível transformar uma coluna x como índice usando dataframe.set_index('Coluna X'))
+            .iloc acessa o valor por meio de índices numéricos
+        remover duplicatas: vendas_df.drop_duplicates()
+
+    EXPORTANDO DO DATAFRAME PARA CSV:
+        dataframe.to_csv('nome_do_arquivo.csv', sep=';', encoding='latin1')
+    
+    TRANSFORMANDO UM DICIONARIO EM UM DATAFRAME:
+        vendas_produtos_df = pd.DataFrame.from_dict(vendas_produtos)
+        mexendo na orientação de linhas e colunas-> vendas_produtos_df = pd.DataFrame.from_dict(vendas_produtos, orient='index')
+
+    LENDO CSV DIRETO DA INTERNET:
+        url = 'link de download'
+        assunto_df = pd.read_csv(url)
+
+        CSV EM UMA REQUISIÇÃO QUE PRECISA SER TRATADA:
+            - arquivo nao vem bonitinho em .csv
+            -> import requests & import io
+
+            exemplo: 
+            import pandas as pd
+            import requests
+            import io
+
+            url = 'link de download nao csv'
+            conteudo_url = requests.get(url).content
+            arquivo = io.StringIO(conteudo_url.decode('latin1'))
+            assunto_df = pd.read_csv(arquivo) -> atentar-se ao sep
+
+INTEGRAÇÃO PYTHON + EXCEL:
+    openpyxl -> matém a estrutura dos arquivos e nao ocasiona perda de gráficos ou imagens
+
+    abrindo arquivo excel com pandas:
+        tabela = pd.read_excel('nome do arquivo')
+        
+    Criando barra de progresso:
+        módulo tqdm
+
+        from tdqm import tqdm
+        pbar = tqdm(total=len(vendas_df['ID Loja']), position=0, leave=True)
+
+        adicionar no loop-> pbar.update()
+
+INTEGRAÇÃO PYTHON COM ARQUIVOS TXT:
+    
+    Abrir arquivo txt:
+        arquivo = open('Nome_do_arquivo.txt', 'r')
+            r - read
+            w - write -> substitui o arquivo antigo
+            a - adicionar (append) informação
+        arquivo.read() -> lê o arquivo igual está no bloco de notas
+        arquivo.readlines() -> transforma o arquivo numa lista e cada linha é um item da lista
+
+        método write:
+            arquivo.write('texto que quer escrever')
+        
+        sempre que usamos o método open, devemos usar o método close, incluse para salvar as referencias dadas pelo método write
+            arquivo.close()
+
+        Estrutura with:
+            ao final do with, a própria estrutura fecha o arquivo automaticamente
+            -> with open('nome_do_arquivo.txt', 'w') as arquivo2: 
+
+INTEGRAÇÃO PYTHON COM SQL:
+    biblioteca pyodbc
+    Criando conexão com o banco de dados:
+        dados_conexao = ("Driver={SQL Server};"
+                        "Server=SeuServidor;"
+                        "Database=NomeBaseDados;")
+        
+        conexao = pyodbc.connect(dados_conexao)
+
+    Criando um cursor -> quem vai executar os códigos SQL
+        cursor = conexao.cursor()
+
+    puxando tabela com pandas-> variavel = pd.read_sql('SELECT * FROM BaseDeDados.tabela', conexao)
+
+AUTOMAÇÃO WEB (Web-Scraping com Selenium):
+    ABRIR PÁGINAS: 
+        navegador.get("url da pag") #ou caminho de arquivo
+
+    SELEÇÃO DE ELEMENTOS:
+        navegador.find_element(By.ID, 'id') -> traz um único item
+        navegador.find_elements -> traz uma lista com os itens
+        .send_keys('texto') -> escreve o texto no campo do id 
+        .click() -. clica 
+
+        ex: navegador.find_element(By.ID, '_form_176_submit').click()
+        Seleção pela classe: (By.CLASS_NAME, 'classe')
+        Seleção por XPATH: (By.XPATH, 'classe') ->inspecionar, encontrar o bloco buscado, botão direito do mouse e copiar xpath
+
+        Seleção por métodos alternativos:
+            Tag-> (by.TAG_NAME, 'Tag')
+            Partial Link Text -> (by.PARTIAL_LINK_TEXT, 'link buscado').text -> .text pra pegar só o texto daquele link
+            name ->(By.NAME, 'name do html')
+        
+        SELEÇÃO DE VÁRIOS ELEMENTOS: 
+            lista = navegador.find_elements(by.CLASS_NAME,'classe')
+            possível usar um for para encontrar o elemento buscado dentro da lista 
+            for elemento in lista:
+                if 'blog' in elemento.text.lower()    -> nesse caso blog é o texto buscado
+                    elemento.click()
+                    break
+        selecionando um atributo do html:   
+            .get_attribute('atributo')
+
+    INTERAGINDO COM FORMULÁRIOS:
+        Botão de seleção estilo check-box:
+            para verificar o valor do botão (se está selecionado ou não) usamos .is_selected() -> retorna um booleano
+        Para pegar o valor de um formulário preenchido -> get.attribute('value')
+        Botão de cores: 
+            navegador.find_element(by.XPATH, 'XPATH').send_keys('codigo hex da cor')
+        import Keys // tab -> para informações duplas
+        ANEXAR ARQUIVO:
+
+        INTERAGINDO COM O SELECT:
+            from selenium.webdriver.support.select import Select   #Importar a biblioteca
+
+            elemento_select = Select(elemento)
+            elemento_select.<método>()
+
+        DROPDOWN DIFERENTE:
+            ACTIONS CHAINS - AÇÕES DO MOUSE:
+                guardar a referencia do menu em uma variavel menu
+                guardar a referencia do topico a ser clicado em uma variável item
+                ActionChains(navegador).move_to_element(menu).perform()
+                item.click()
+
+    ALERTAS NO SELENIUM: 
+        ALERTA BÁSICO: 
+            alerta = navegador.switch_to.alert
+            ou
+            from selenium.webdriver.common.alert import Alert
+            alerta = Alert(navegador)
+
+            alerta.accept()
+         ALERTA DE CONFIRMAÇÃO:  
+            aceitar: alerta.alert(navegador) // alerta.accept()
+            cancelar: // alerta.dismiss()
+
+        PEGAR O TEXTO DO ALERTA:   
+            alerta= Alert(navegador)
+            texto = alerta.text
+
+        ALERTA DE INPUT:    
+            alerta = Alert(navegador)
+            alerta.send_keys('input')
+    
+    ABAS E JANELAS: arquivo na pasta selenium
+    
+    ESPERAR O ELEMENTO CARREGAR:
+        2 métodos:
+
+        - WebDriverWait + ExpectedConditions (EC)
+        - Loop de espera
+    
+    IFRAMES - páginas dentro de páginas: 
+        iframe = navegador.find_element(By.TAG_NAME, 'iframe')
+        navegador.switch_to.frame(iframe)
+        #Fazer isso de acordo com o número de iframes existentes 
+
+        Voltar para o conteúdo original:
+            navegador.switch_to.default_content()
+
+AMBIENTES VIRTUAIS:
+    1. Usar ferramentas que funcionam apenas com versões epecíficas do python
+    2. Isolar de todo o resto tudo aquilo que é estritamente necessário para o programa rodar. Importante para sites e programas que serão distribuídos
+
+TRASNFORMANDO CÓDIGOS PYTHON EM EXE:
+    1.achar a pasta do código no cmd por meio dos comandos dir e cd
+    2. digitar: pyinstaller -w "Nome_do_arquivo.py"
+
+    Para enviar para outra pessoa: 
+        ir até a pasta dist -> enviar para -> pasta compactada -> enviar a pasta zipada
+        se o arquivo ficar muito pesado, é possível reduzir o tamanho dele usando um ambiente virtual e instalandosomente as bibliotecas necessárias
+
+    CÓDIGOS MAIS COMPLEXOS:
+        biblioteca tkinter -> interação com o usuário
+        Selecionando um arquivo:
+            from tkinter import *
+            import tkinter.filedialog
+            from tkinter import messagebox
+
+            janela = Tk()
+            arquivo = tkinter.filedialog.askopenfilename(title = "titulo da aba de explorar arquivos")
+            janela.destroy()
+
+        pip install auto-py-to-exe
+        https://dev.to/eshleron/how-to-convert-py-to-exe-step-by-step-guide-3cfi
+        adicionar as bibliotecas e módulos necessários como chromedriver
+
+ORIENTAÇÃO A OBJETOS:
+    Vantagens:
+        - Aproveitar o código sem precisar refazer/copiar tudo
+        - Encapsulamento: Proteção a mudanças indesejadas
+        - Herança: Instâncias do objeto tem as mesmas características, apesar de ter valores diferentes
+        - Polimorfismo: um mesmo método pode ter várias "formas" em diferentes classes 
+
+    Criando uma classe:
+        class Nome_classe(object):
+
+            def __init__(self):
+    
+    Métodos estáticos não usam nenhuma informação da classe, são funções auxiliares
+
+    __dict__ pega todos os atributos e o valores de uma instância/classe
+
+    para nao rodar os testes de uma classe no main:
+
+    if __name__ == '__main__':
+        #TESTES
+    
+NUMPY:
